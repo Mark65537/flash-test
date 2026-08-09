@@ -2,10 +2,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>SWF через Ruffle</title>
+    <title>Ruffle</title>
+
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+
+        window.RufflePlayer.config = {
+            openInNewTab: function (url) {
+                window.open(url.toString(), "_blank");
+            }
+        };
+    </script>
 </head>
+
 <body>
-    <object data="https://gitverse.ru/api/repos/Marksiks/flash-test/raw/branch/master/game.swf" width="800" height="600"></object>
+
+    <ruffle-player id="player"></ruffle-player>
+
+    <script>
+        const player = document.getElementById("player");
+
+        player.load({
+            url: "https://gitverse.ru/api/repos/Marksiks/flash-test/raw/branch/master/game.swf"
+        });
+    </script>
+
 </body>
 </html>
