@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Ruffle</title>
+    <title>Ruffle SWF</title>
 
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
@@ -19,15 +19,22 @@
 
 <body>
 
-    <ruffle-player id="player"></ruffle-player>
+<div id="player"></div>
 
-    <script>
-        const player = document.getElementById("player");
+<script>
+    const ruffle = window.RufflePlayer.newest();
 
-        player.load({
-            url: "https://gitverse.ru/api/repos/Marksiks/flash-test/raw/branch/master/game.swf"
-        });
-    </script>
+    const player = ruffle.createPlayer();
+
+    document.getElementById("player").appendChild(player);
+
+    player.load({
+        url: "https://download.sberdisk.ru/download/file/1339725056?token=Sk55iVdSjRbSbFV&filename=0237brodil-mario_and_king_kong.swf"
+    });
+
+    player.style.width = "800px";
+    player.style.height = "600px";
+</script>
 
 </body>
 </html>
